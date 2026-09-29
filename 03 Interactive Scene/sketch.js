@@ -16,6 +16,13 @@ function draw() {
   stroke(255);
   strokeWeight(5);
   point(windowWidth/2,windowHeight/2);
+  point(windowWidth/2+100,windowHeight/2+100);
+  point(windowWidth/2-100,windowHeight/2-50);
+  point(windowWidth/2+200,windowHeight/2-200);
+  point(windowWidth/2+50,windowHeight/2-300);
+  point(windowWidth/2-250,windowHeight/2-200);
+  point(windowWidth/2-251,windowHeight/2+10);
+
   // the moon
   fill("gray");
   stroke(0);
