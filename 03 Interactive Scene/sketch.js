@@ -1,6 +1,6 @@
-// Project Title
-// Your Name
-// Date
+// interactive sence
+// elif
+// 10/1/2026
 //
 // Extra for Experts:
 // - describe what you did to take this project "above and beyond"
@@ -22,6 +22,10 @@ function draw() {
   point(windowWidth/2+50,windowHeight/2-300);
   point(windowWidth/2-250,windowHeight/2-200);
   point(windowWidth/2-251,windowHeight/2+10);
+  point(windowWidth/2-100,windowHeight/2-200);
+  point(windowWidth/2-150,windowHeight/2+100);
+  point(windowWidth/2+200,windowHeight/2-25);
+  point(windowWidth/2+200,windowHeight/2-50);
 
   // the moon
   fill("gray");
