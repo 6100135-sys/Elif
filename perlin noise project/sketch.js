@@ -17,11 +17,21 @@ async function setup() {
 }
 
 function keyPressed() {
-  print("a");
-  offset = random(1000);
+  if (keyCode === 37) {
+    print("a");
+    rectwdth = max(1, rectwdth - 1);
+  }
+  if (keyCode === 39) {
+    rectwdth += 1;
+  }
+   if (key === ' '){
+     rectwdth = 10;
+   }
+
   background(220);
   generateTerrain();
 }
+
 
 function draw() {
   background(220);
@@ -37,4 +47,10 @@ function generateTerrain() {
     xTime += 0.01;
     rect(x, height, rectwdth, -h);
   }
+}
+
+function drawFlag(x,y){
+  line();
+  triangle();
+
 }
