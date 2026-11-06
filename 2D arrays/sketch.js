@@ -23,12 +23,74 @@ let tilesize = 60;
 
 async function setup() {
   createCanvas(cols*tilesize, rows*tilesize);
+  randomArray();
 }
 
 function draw() {
   background(220);
   renderGrid();
+  getCurrentX();
+  win();
 }
+
+function getCurrentX(){
+  //determine current col pos of mouse
+  fill(255,0,0);
+  let constrainedX = constrain(mouseX,0,width-1);
+  return int(constrainedX/tilesize);
+}
+
+function getCurrentY(){
+  //determine current row pos of mouse
+  let constrainedY = constrain(mouseY,0,height-1);
+  return int(constrainedY/tilesize);
+}
+
+function flip(x,y){
+  //flip the tile at postion (x,y);
+  if(grid[y][x] === 255) grid[y][x] = 0;
+  else grid[y][x] = 255;
+}
+
+function mousePressed(){
+  //only do a flip if mouse is one the canvas
+  if(mouseX < width && mouseY < height){
+    let x = getCurrentX();
+    let y = getCurrentY();
+
+  if (keyIsDown(SHIFT)) {
+    flip(x,y);
+    console.log("Shift clicked!");
+  } 
+  else {
+    if(x-1 >= 0) flip(x-1, y);//left
+    if(y-1 >= 0) flip(x, y-1);//up
+    if(y+1 >= 0) flip(x, y+1); // down
+    if(x+1 < cols) flip(x+1, y);// right
+    flip(x,y);
+    console.log("Normal click!");
+  }
+    //always
+    //flip(x,y);
+
+    //IF THEY EXIST:
+    //flip the cardinal neigboors (NSEW)
+    //if(x-1 >= 0) flip(x-1, y); // LEFT
+    //if(y-1 >= 0) flip(x, y-1); //UP
+
+    //if(x+1 >= )
+  }
+}
+
+function win(){
+
+}
+
+function randomArray(){
+
+}
+
+
 
 function renderGrid(){
   //interpret the data stored in 2D array
