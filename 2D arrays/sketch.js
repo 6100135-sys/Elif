@@ -23,14 +23,18 @@ let tilesize = 60;
 
 async function setup() {
   createCanvas(cols*tilesize, rows*tilesize);
-  randomArray();
+  randomArray(grid);
 }
 
 function draw() {
   background(220);
   renderGrid();
   getCurrentX();
-  win();
+  if (win(grid === false)) {
+  fill(255,0,0);
+  textSize(50);
+  text("You Win!", 100, 100);
+  }
 }
 
 function getCurrentX(){
@@ -66,7 +70,7 @@ function mousePressed(){
     if(x-1 >= 0) flip(x-1, y);//left
     if(y-1 >= 0) flip(x, y-1);//up
     if(y+1 >= 0) flip(x, y+1); // down
-    if(x+1 < cols) flip(x+1, y);// right
+    if(x+1 <= cols) flip(x+1, y);// right
     flip(x,y);
     console.log("Normal click!");
   }
@@ -82,12 +86,26 @@ function mousePressed(){
   }
 }
 
-function win(){
+function win(grid){
+  for (let row = 0; row < grid.length; row++) {
+    for (let col = 0; col < grid[row].length; col++) {
 
+      if (grid[row][col] !== 0 && grid[row][col] !== 225) {
+        return false;
+      }
+
+    }
+  }
+
+  return true;
 }
 
-function randomArray(){
-
+function randomArray(grid){
+  for (let row = 0; row < grid.length; row++) {
+    for (let col = 0; col < grid[row].length; col++) {
+      grid[row][col] = Math.random() < 0.5 ? 0 : 255;
+    }
+  }
 }
 
 
