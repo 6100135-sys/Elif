@@ -30,7 +30,7 @@ function draw() {
   background(220);
   renderGrid();
   getCurrentX();
-  if (win(grid === false)) {
+  if (win(grid)) {
   fill(255,0,0);
   textSize(50);
   text("You Win!", 100, 100);
@@ -86,11 +86,13 @@ function mousePressed(){
   }
 }
 
-function win(grid){
+function win(grid) {
+  let first = grid[0][0];
+
   for (let row = 0; row < grid.length; row++) {
     for (let col = 0; col < grid[row].length; col++) {
 
-      if (grid[row][col] !== 0 && grid[row][col] !== 225) {
+      if (grid[row][col] !== first) {
         return false;
       }
 
