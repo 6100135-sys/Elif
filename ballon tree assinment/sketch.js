@@ -11,19 +11,19 @@ let branchAngle = 30;
 
 function setup() {
   createCanvas(500, 500);
-  background(225);
-  
   
 }
 
 function draw() {
+  background(225);
   branchAngle = map(mouseX, 0, width, 5, 60);
   drawTree(width/2, height*.9, 90, 6);
 }
 
 function drawLine( x1,  y1,  x2,  y2,  depth) {
   //draw a line segment connecting (x1,y1) to (x2,y2)
-  line(x1, y1, x2, y2);
+  line(x1, y1, x2, y2,);
+  
 }
 
 function drawTree(x1, y1, angle, depth) {
@@ -35,7 +35,7 @@ function drawTree(x1, y1, angle, depth) {
     drawLeaf(x2, y2, depth);
 
     //for a 2-branch tree:
-    drawTree(x2, y2, angle+branchAngle, depth-1);
+    drawTree(x2, y2, angle-branchAngle, depth-1);
     drawTree(x2, y2, angle+branchAngle, depth-1);
     drawTree(x2, y2, angle+0, depth-1);
   }
